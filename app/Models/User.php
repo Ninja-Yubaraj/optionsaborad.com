@@ -96,7 +96,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             return Storage::url($this->profile_picture);
             
         } else {
-            return "https://yukon.yantramayaadev.online/images/horizontal.png";
+            return "https://optionsaborad.com/images/horizontal.png";
         }
     }
 }

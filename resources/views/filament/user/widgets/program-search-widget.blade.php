@@ -16,7 +16,7 @@
                 </h2>
 
                 <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Search Programs in Yukon Overseas
+                    Find Your Best Options.
                 </p>
             </div>
 
@@ -35,7 +35,7 @@
                     tag="button"
                     type="submit"
                 >
-                    Search
+                    Program Search
                 </x-filament::button>
             </form>
         </div>

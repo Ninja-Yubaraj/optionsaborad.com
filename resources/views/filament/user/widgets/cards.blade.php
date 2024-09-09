@@ -31,7 +31,7 @@
 
                     <div class="flex-1">
                         <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                            {{ 'Visitor Visa' }}
+                            {{ 'Student Visa' }}
                         </h2>
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
@@ -48,23 +48,24 @@
                 <div class="flex items-center gap-x-3">
                     <x-filament::icon
                         alias="panels::topbar.global-search.field"
-                        icon="heroicon-m-window"
+                        icon="heroicon-m-book-open"
                         wire:target="search"
                         class="h-10 w-10 text-gray-500 dark:text-gray-400"
                     />
 
                     <div class="flex-1">
                         <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                            {{ 'Dependent Visa' }}
+                            {{ 'MBBS' }}
                         </h2>
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Seamless Dependent Visa Sponsorship Support
+                            Bachelor of Medicine and Surgery: Medical Education
                         </p>
                     </div>
                 </div>
             </x-filament::section>
         </a>
+        
 
         <!-- Third Card -->
         <a href="#" class="flex flex-col">
@@ -189,24 +190,24 @@
             </x-filament::section>
         </a>
 
-        <!-- Eighth Card -->
+        <!-- Second Card -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
                     <x-filament::icon
                         alias="panels::topbar.global-search.field"
-                        icon="heroicon-m-book-open"
+                        icon="heroicon-m-window"
                         wire:target="search"
                         class="h-10 w-10 text-gray-500 dark:text-gray-400"
                     />
 
                     <div class="flex-1">
                         <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                            {{ 'MBBS' }}
+                            {{ 'Dependent Visa' }}
                         </h2>
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Bachelor of Medicine and Surgery: Medical Education
+                            Seamless Dependent Visa Sponsorship Support
                         </p>
                     </div>
                 </div>

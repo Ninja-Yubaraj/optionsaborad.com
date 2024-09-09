@@ -21,7 +21,7 @@
                 </h2>
 
                 <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Manage Programs in Yukon Overseas
+                    Manage Programs in Options Aborad
                 </p>
             </div>
 
