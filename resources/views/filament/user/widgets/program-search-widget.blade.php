@@ -21,11 +21,11 @@
             </div>
 
             <form
-                action= "{{'/user/programs'}}" 
+                action= "{{'/user/program-search'}}" 
                 method="get"
                 class="my-auto"
             >
-                @csrf
+                {{-- @csrf --}}
 
                 <x-filament::button
                     color="gray"
