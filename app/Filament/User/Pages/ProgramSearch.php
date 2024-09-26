@@ -41,6 +41,30 @@ class ProgramSearch extends Page implements HasForms
                     ->schema([
                         Forms\Components\Group::make()
                             ->schema([
+                                Forms\Components\Select::make('degrees')
+                                    ->options(Degree::all()->pluck('name', 'id')->toArray())
+                                    ->label('Degrees')
+                                    ->multiple()
+                                    ->required()
+                                    ->native(false),
+
+                                Forms\Components\Select::make('streams')
+                                    ->options(Stream::all()->pluck('label', 'id')->toArray())
+                                    ->label('Streams')
+                                    ->multiple()
+                                    ->required()
+                                    ->native(false),
+
+                                Forms\Components\TextInput::make('percentage')
+                                    ->required()
+                                    ->suffix('%')
+                                    ->numeric()
+                                    ->placeholder('e.g. 10, 30, 60'),
+                            ])
+                            ->columns(3),
+
+                        Forms\Components\Group::make()
+                            ->schema([
                                 Forms\Components\TextInput::make('backlogs')
                                     ->required()
                                     ->numeric()
@@ -87,31 +111,7 @@ class ProgramSearch extends Page implements HasForms
                                     ->required()
                                     ->numeric(),
                             ])
-                            ->columns(5),
-                            
-                            Forms\Components\Group::make()
-                                ->schema([
-                                    Forms\Components\Select::make('degrees')
-                                        ->options(Degree::all()->pluck('name', 'id')->toArray())
-                                        ->label('Degrees')
-                                        ->multiple()
-                                        ->required()
-                                        ->native(false),
-
-                                    Forms\Components\Select::make('streams')
-                                        ->options(Stream::all()->pluck('label', 'id')->toArray())
-                                        ->label('Streams')
-                                        ->multiple()
-                                        ->required()
-                                        ->native(false),
-                                    ])
-                                ->columns(2),
-
-                            Forms\Components\TextInput::make('percentage')
-                                ->required()
-                                ->suffix('%')
-                                ->numeric()
-                                ->placeholder('e.g. 10, 30, 60'),
+                            ->columns(5), // Display in five columns
                     ])
             ])
             ->statePath('data');
@@ -141,12 +141,11 @@ class ProgramSearch extends Page implements HasForms
             "tableFilters[all][speaking]={$data['speaking']}&" .
             "tableFilters[all][reading]={$data['reading']}&" .
             "tableFilters[all][writing]={$data['writing']}&" .
-            "tableFilters[all][percentage]={$data['percentage']}&";
+            "tableFilters[all][percentage]={$data['percentage']}&" .
             "tableFilters[all][streams]={$streams}&" .
             "tableFilters[all][degrees]={$degrees}";
 
         $searchLogData = $data;
-
         $searchLogData['user_id'] = auth()->id();
 
         SearchLog::create($searchLogData);

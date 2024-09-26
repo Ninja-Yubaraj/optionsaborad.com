@@ -35,10 +35,8 @@ class ProgramResource extends Resource
     {
         if (!request()->filled('tableFilters')) {
             return parent::getEloquentQuery()->where('id', null);
-        
         } else {
             return parent::getEloquentQuery();
-
         }
     }
 
@@ -46,7 +44,7 @@ class ProgramResource extends Resource
     {
         return $form
             ->schema([
-                //
+                // No changes required here based on the given request
             ]);
     }
 
@@ -76,6 +74,27 @@ class ProgramResource extends Resource
             ->filters([
                 Tables\Filters\Filter::make('all')
                     ->form([
+
+                        
+                        Forms\Components\Select::make('degrees')
+                            ->options(Degree::all()->pluck('name', 'id')->toArray())
+                            ->label('Degrees')
+                            ->multiple()
+                            ->native(false),
+
+                        Forms\Components\Select::make('streams')
+                            ->options(Stream::all()->pluck('label', 'id')->toArray())
+                            ->label('Streams')
+                            ->multiple()
+                            ->native(false),
+
+                        Forms\Components\TextInput::make('percentage')
+                            ->suffix('%')
+                            ->numeric()
+                            ->placeholder('e.g. 10, 30, 60'),
+
+                        // Now Backlogs and Study Gap
+                        
                         Forms\Components\TextInput::make('backlogs')
                             ->numeric()
                             ->placeholder('e.g. 5, 12'),
@@ -98,41 +117,26 @@ class ProgramResource extends Resource
                                 "Others" => "Others",
                             ])
                             ->native(false),
-            
+
                         Forms\Components\TextInput::make('listening')
                             ->numeric(),
-            
+
                         Forms\Components\TextInput::make('speaking')
                             ->numeric(),
-            
+
                         Forms\Components\TextInput::make('reading')
                             ->numeric(),
-            
+
                         Forms\Components\TextInput::make('writing')
                             ->numeric(),
-            
+
                         Forms\Components\TextInput::make('avg')
                             ->numeric()
                             ->label('Avg.'),
 
-                        Forms\Components\TextInput::make('percentage')
-                            ->suffix('%')
-                            ->numeric()
-                            ->placeholder('e.g. 10, 30, 60'),
-
-                        Forms\Components\Select::make('degrees')
-                            ->options(Degree::all()->pluck('name', 'id')->toArray())
-                            ->label('Degrees')
-                            ->multiple()
-                            ->native(false),
-
-                        Forms\Components\Select::make('streams')
-                            ->options(Stream::all()->pluck('label', 'id')->toArray())
-                            ->label('Streams')
-                            ->multiple()
-                            ->native(false),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
+
                         if ($data['backlogs']) {
                             $query->whereRaw("CAST(backlogs AS UNSIGNED) >= ?", [(int) $data['backlogs']]);
                         }
@@ -145,7 +149,6 @@ class ProgramResource extends Resource
                             $query->whereJsonContains('exam', ['exam' => $data['exam']]);
                         }
 
-                        // Other Queries Here
                         if ($data['percentage']) {
                             $query->whereRaw("CAST(percentage_bucket AS UNSIGNED) <= ?", [(int) $data['percentage']]);
                         }
@@ -170,7 +173,7 @@ class ProgramResource extends Resource
                             });
                         }
 
-                        // Needs To be last query
+                        // Needs to be last query
                         if ($data['exam'] && $data['listening'] && $data['speaking'] && $data['reading'] && $data['writing']) {
                             $FilteredPrograms = $query->get();
                             $FilteredIds = [];
@@ -181,8 +184,6 @@ class ProgramResource extends Resource
                                         $examJson = $program->exam[$i];
 
                                         if (isset($examJson)) {
-                                            // $examJson = json_decode($examJson, true);
-
                                             if ($examJson['listening'] <= $data['listening'] &&
                                                 $examJson['speaking'] <= $data['speaking'] &&
                                                 $examJson['reading'] <= $data['reading'] &&
@@ -194,7 +195,7 @@ class ProgramResource extends Resource
                                         }
 
                                     } catch (\Exception $e) {
-                                        
+                                        // Handle exceptions
                                     }
                                 }
                             }

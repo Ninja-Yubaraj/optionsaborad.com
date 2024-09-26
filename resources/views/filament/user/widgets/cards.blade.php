@@ -9,16 +9,17 @@
     }
 
     @media (max-width: 768px) {
-        /* Additional styling for medium-sized screens (laptops) */
+        /* Additional styling for small screens (mobile) */
         .cards-width {
             min-width: 400px; 
             max-width: 400px;
         }
     }
     </style>
+    
     <!-- First Row -->
     <div class="flex flex-wrap gap-4">
-        <!-- First Card -->
+        <!-- First Card: Student Visa -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -42,7 +43,31 @@
             </x-filament::section>
         </a>
 
-        <!-- Second Card -->
+        <!-- Second Card: Dependent Visa -->
+        <a href="#" class="flex flex-col">
+            <x-filament::section class="cards-width">
+                <div class="flex items-center gap-x-3">
+                    <x-filament::icon
+                        alias="panels::topbar.global-search.field"
+                        icon="heroicon-m-window"
+                        wire:target="search"
+                        class="h-10 w-10 text-gray-500 dark:text-gray-400"
+                    />
+
+                    <div class="flex-1">
+                        <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
+                            {{ 'Dependent Visa' }}
+                        </h2>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Seamless Dependent Visa Sponsorship Support
+                        </p>
+                    </div>
+                </div>
+            </x-filament::section>
+        </a>
+
+        <!-- Third Card: MBBS -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -65,9 +90,8 @@
                 </div>
             </x-filament::section>
         </a>
-        
 
-        <!-- Third Card -->
+        <!-- Fourth Card: SOP / Justification Writing -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -91,7 +115,7 @@
             </x-filament::section>
         </a>
 
-        <!-- Fourth Card -->
+        <!-- Fifth Card: Education Loan -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -115,7 +139,7 @@
             </x-filament::section>
         </a>
 
-        <!-- Fifth Card -->
+        <!-- Sixth Card: Forex Service -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -139,7 +163,7 @@
             </x-filament::section>
         </a>
 
-        <!-- Sixth Card -->
+        <!-- Seventh Card: Coaching Material -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -162,11 +186,8 @@
                 </div>
             </x-filament::section>
         </a>
-    </div>
 
-    <!-- Third Row -->
-    <div class="flex flex-wrap gap-4 mt-4">
-        <!-- Seventh Card -->
+        <!-- Eighth Card: Language Coaching -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -184,30 +205,6 @@
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             Language Coaching Services for Improved Communication
-                        </p>
-                    </div>
-                </div>
-            </x-filament::section>
-        </a>
-
-        <!-- Second Card -->
-        <a href="#" class="flex flex-col">
-            <x-filament::section class="cards-width">
-                <div class="flex items-center gap-x-3">
-                    <x-filament::icon
-                        alias="panels::topbar.global-search.field"
-                        icon="heroicon-m-window"
-                        wire:target="search"
-                        class="h-10 w-10 text-gray-500 dark:text-gray-400"
-                    />
-
-                    <div class="flex-1">
-                        <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                            {{ 'Dependent Visa' }}
-                        </h2>
-
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Seamless Dependent Visa Sponsorship Support
                         </p>
                     </div>
                 </div>

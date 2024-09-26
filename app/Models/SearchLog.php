@@ -11,6 +11,9 @@ class SearchLog extends Model
 
     protected $fillable = [
         'title',
+        'degrees',
+        'streams',
+        'percentage',
         'backlogs',
         'study_gap',
         'exam',
@@ -18,13 +21,14 @@ class SearchLog extends Model
         'speaking',
         'reading',
         'writing',
-        'percentage',
         'user_id',
         'meta',
     ];
 
     protected $casts = [
         'meta' => 'json',
+        'degrees' => 'array',
+        'streams' => 'array',
     ];
 
     public function user()
