@@ -36,38 +36,14 @@
                         </h2>
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Streamlined Visitor Visa Application Process
+                            Streamlined Student Visa Application Process
                         </p>
                     </div>
                 </div>
             </x-filament::section>
         </a>
 
-        <!-- Second Card: Dependent Visa -->
-        <a href="#" class="flex flex-col">
-            <x-filament::section class="cards-width">
-                <div class="flex items-center gap-x-3">
-                    <x-filament::icon
-                        alias="panels::topbar.global-search.field"
-                        icon="heroicon-m-window"
-                        wire:target="search"
-                        class="h-10 w-10 text-gray-500 dark:text-gray-400"
-                    />
-
-                    <div class="flex-1">
-                        <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                            {{ 'Dependent Visa' }}
-                        </h2>
-
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            Seamless Dependent Visa Sponsorship Support
-                        </p>
-                    </div>
-                </div>
-            </x-filament::section>
-        </a>
-
-        <!-- Third Card: MBBS -->
+        <!-- Second Card: MBBS -->
         <a href="#" class="flex flex-col">
             <x-filament::section class="cards-width">
                 <div class="flex items-center gap-x-3">
@@ -85,6 +61,30 @@
 
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             Bachelor of Medicine and Surgery: Medical Education
+                        </p>
+                    </div>
+                </div>
+            </x-filament::section>
+        </a>
+
+        <!-- Third Card: Dependent Visa -->
+        <a href="#" class="flex flex-col">
+            <x-filament::section class="cards-width">
+                <div class="flex items-center gap-x-3">
+                    <x-filament::icon
+                        alias="panels::topbar.global-search.field"
+                        icon="heroicon-m-window"
+                        wire:target="search"
+                        class="h-10 w-10 text-gray-500 dark:text-gray-400"
+                    />
+
+                    <div class="flex-1">
+                        <h2 class="text-base font-semibold leading-6 text-gray-950 dark:text-white">
+                            {{ 'Visitor Visa' }}
+                        </h2>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Seamless Visitor Visa Sponsorship Support
                         </p>
                     </div>
                 </div>
